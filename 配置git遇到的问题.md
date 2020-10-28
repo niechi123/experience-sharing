@@ -26,3 +26,19 @@ Initial commit
 nothing to commit (create/copy files and use "git add" to track)
 
 *因为仓库里面是空的， 需要把指定的项目放到这个仓库下*
+
+
+
+**四、nothing to commit, working tree clean**
+
+```
+git commit -m "添加新项目"
+```
+
+>执行时出现的提示
+
+On branch master
+
+nothing to commit, working tree clean
+
+>原因：可能已经  git commit -m "" 过一次了，现在直接 执行 git push origin master 就可以了
