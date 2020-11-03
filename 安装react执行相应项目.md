@@ -66,9 +66,15 @@ $ npm start
 Error: Cannot find module 'babel-plugin-import' from 'E:\GitHub开源项目\my-app'
 >所需插件没有安装上
 
->npm install babel-plugin-import 
+```cmd
+npm install babel-plugin-import 
+```
 
->npm install antd
+
+***如果有很多的提示的话需要执行下面的语句***
+```cmd
+npm install antd
+```
 
 Module not found: Can't resolve 'enquire-js' in 'E:\GitHub开源项目\my-app\src\Home'
 >解决  ： npm install enquire-js
@@ -78,6 +84,9 @@ Module not found: Can't resolve 'enquire-js' in 'E:\GitHub开源项目\my-app\sr
 npm install rc-banner-anim rc-queue-anim rc-scroll-anim
 
 
+
+
+>如果上面还是出现错误，那就少哪个库就  npm install 库名字    就行了
 
 ### react打包后打开是空白页
 ***在打包之前,在package.json中private下(位置任意)添加"homepage": "./"***
@@ -89,6 +98,13 @@ npm install rc-banner-anim rc-queue-anim rc-scroll-anim
 然后执行yarn build 或者 npm run build
 
 再点开index.html就不会报错
+
+
+
+***注意：***
+>在landing编辑器中删除按钮只能删除对应的一整块，如果不想看到某一块，可以在右侧的操作的栏目中的布局总有一个隐藏的按钮，选中就可以了
+
+
 
 
 
@@ -122,6 +138,13 @@ npm install react-app-rewired customize-cra less less-loader
 详细的请看 [create-react-app 里使用](https://landing.ant.design/docs/use/create-react-app-cn)
 
 [进入官网](https://landing.ant.design/index-cn)
+
+
+
+
+
+
+
 
 
 ## Vue和React的优缺点
