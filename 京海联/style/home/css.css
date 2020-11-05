@@ -1,0 +1,38 @@
+.item {
+	background: #fdfdfd;
+}
+.traps{
+    position: relative;
+    overflow: hidden;
+}
+.traps img{
+    display: block;
+}
+.traps .cove{
+    width: 230px;
+    height: 220px;
+    position: absolute;
+    top: 0;
+    left: 230px;
+    background: #ffffff;
+	background-color:rgba(0,0,0,0.3);
+    padding: 140px 0 0 0;
+}
+.traps .cove p{
+
+	font-size: 14px;
+	font-family: 微软雅黑;
+	color:#fff;
+	text-align: center;
+
+}
+.traps .cove p img{
+
+	width: 130px;
+	margin: 0 auto;
+	margin-top: -30px;
+
+}
+.btn4 {
+	cursor: pointer;
+}

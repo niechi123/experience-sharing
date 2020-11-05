@@ -136,3 +136,18 @@ wx.ready(function(){ //加载分享时接收的参数
 
 
 ### 安装d2-admin时遇到的问题
+1.安装不成功   应该使用 npm i 命令
+>[官方文档](https://d2.pub/zh/doc/d2-admin/learn/start.html#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96)
+
+
+
+
+
+
+
+
+
+
+
+
+

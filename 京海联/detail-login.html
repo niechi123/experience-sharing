@@ -1,0 +1,292 @@
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<style>
+:root {
+	/* COLORS */
+	--white: #e9e9e9;
+	--gray: #333;
+	--blue: #0367a6;
+	--lightblue: #008997;
+
+	/* RADII */
+	--button-radius: 0.7rem;
+
+	/* SIZES */
+	--max-height: 420px;
+
+	font-size: 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+
+
+.form__title {
+	font-weight: 300;
+	margin: 0;
+	margin-bottom: 1.25rem;
+}
+
+.link {
+	color: var(--gray);
+	font-size: 0.9rem;
+	margin: 1.5rem 0;
+	text-decoration: none;
+}
+
+.container {
+	background-color: var(--white);
+	border-radius: var(--button-radius);
+	height: 560px;
+	max-width: var(--max-width);
+	overflow: hidden;
+	position: relative;
+	width: 97%;
+	
+	background: no-repeat url(img/login.png);
+}
+
+.container__form {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all 0.6s ease-in-out;
+}
+
+.container--signin {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .container--signin {
+	transform: translateX(85%);
+}
+
+.container--signup {
+	left: 0;
+	opacity: 0;
+	width: 50%;
+	z-index: 1;
+}
+
+.container.right-panel-active .container--signup {
+	animation: show 0.6s;
+	opacity: 1;
+	transform: translateX(100%);
+	z-index: 5;
+}
+
+.container__overlay {
+	height: 100%;
+	left: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	transition: transform 0.6s ease-in-out;
+	width: 50%;
+	z-index: 100;
+}
+
+.container.right-panel-active .container__overlay {
+	transform: translateX(-100%);
+}
+
+/* .title {	
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+.content {
+	font-size: 16px;
+	padding-left: 20px;
+	text-indent:2em;
+	text-align: justify;
+	line-height: 25px;
+} */
+
+.overlay__panel {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+	width: 50%;
+}
+
+.overlay--left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay--left {
+	transform: translateX(0);
+}
+
+.overlay--right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay--right {
+	transform: translateX(20%);
+}
+
+.btn {
+	background-color: var(--blue);
+	background-image: linear-gradient(90deg, var(--blue) 0%, #0663a9 74%);
+	border-radius: 20px;
+	border: 1px solid var(--blue);
+	color: var(--white);
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	padding: 0.9rem 4rem;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.form > .btn {
+	margin-top: 1.5rem;
+}
+
+.btn:active {
+	transform: scale(0.95);
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 5rem;
+	height: 100%;
+	text-align: center;
+}
+
+.input {
+	background-color: #fff;
+	border: none;
+	padding: 0.9rem 0.9rem;
+	margin: 0.5rem 0;
+	width: 75%;
+}
+
+@keyframes show {
+	0%,
+	49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+
+	50%,
+	100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+/* 验证码 */
+		.code {
+			padding-top: 50px;
+			width: 400px;
+			margin: 0 auto;
+		}
+		
+		.input-val {
+			background-color: #fff;
+			border: none;
+			padding: 0.9rem 0.9rem;
+			margin-top: 0.5rem;
+			margin-left: -77px;
+			width: 174px;
+		}
+		
+		#canvas {
+			float: right;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: -45px;
+			margin-left: 335px;
+		}
+		
+		
+	</style>
+</head>
+<body>
+<div class="container right-panel-active">
+   
+    <!-- Sign In -->
+    <div class="container__form container--signin">
+        <form  class="form" id="form2" method="post" action="http://192.168.0.148:8080/WebLogin" target="_blank">
+            <input type="text" placeholder="请输入账号" name="accountName" class="input" />
+            <input type="password" placeholder="请输入密码" name="password" class="input" />
+			<input type="text" value="" placeholder="请输入验证码（不区分大小写）" class="input-val" />
+			<canvas id="canvas" width="100" height="43"></canvas>
+            <button class="btn">登录</button>
+        </form>
+    </div>
+ <!-- Overlay -->
+    <div class="container__overlay">
+            <!-- <div class="title">项目名称</div>
+			<div class="content">京海联（北京）科技有限公司（简称“京海联”，公司曾用名“龙信思源（北京）科技有限公司”）成立于2014年1月，其前身是龙信数据（北京）有限公司第二事业部，是国家高新技术企业、中关村高新技术企业，2018中关村瞪羚企业。
+
+        京海联集数据资源能力、分析建模能力和IT研发能力于一身，提供政务决策支持、农产品流通两个领域的大数据综合解决方案。京海联数据资源能力体现在系列专题数据资源库，是依托龙信数据全国企业数据资源，与相应业务数据融合形成。京海联的AI模型构建能力使用大数据时代的智能分析精准高效。
+
+        京海联拥有实力雄厚的专业技术团队， 90%以上的人员拥有本科及硕博士以上学历。一直以来，公司凭借着高质量的服务，良好的信誉，依托扎实的技术、数据、资源、人才等优势，提供的大数据产品及服务覆盖北京、山东、贵州、安徽、内蒙、河北等地，成为了国内政务和农产品流通领域的优秀大数据综合解决方案服务商。</div>
+ -->    </div>
+   
+</div>
+<script src="js/code.js"></script>
+<script>
+		$(function() {
+			code_draw();
+			// 点击后刷新验证码
+			$("#canvas").on('click', function() {
+				code_draw();
+			})
+			
+			$(".btn").on('click', function() {
+				// 将输入的内容转为大写，可通过这步进行大小写验证
+				var val = $(".input-val").val().toLowerCase();
+				// 获取生成验证码值
+				var num = $('#canvas').attr('data-code');
+				if (val == '') {
+					alert('请输入验证码！');
+				} else if (val == num) {
+					$("#form2").submit()
+			
+				} else {
+					alert('验证码错误！请重新输入！');
+					$(".input-val").val('');
+					draw(show_num);
+				}
+			})
+		})
+const signInBtn = document.getElementById("signIn");
+const signUpBtn = document.getElementById("signUp");
+const fistForm = document.getElementById("form1");
+const secondForm = document.getElementById("form2");
+const container = document.querySelector(".container");
+
+signInBtn.addEventListener("click", () => {
+	container.classList.remove("right-panel-active");
+});
+
+signUpBtn.addEventListener("click", () => {
+	container.classList.add("right-panel-active");
+});
+
+fistForm.addEventListener("submit", (e) => e.preventDefault());
+secondForm.addEventListener("submit", (e) => e.preventDefault());
+</script>
