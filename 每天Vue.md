@@ -193,3 +193,4 @@ Vue.use(VueRouter)
 
 `router.replace(location, onComplete?, onAbort?)`
 `跟 router.push 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。`
+
