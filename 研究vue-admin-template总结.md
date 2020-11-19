@@ -136,7 +136,14 @@ t.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
 
 
 执行 yarn prod 
-error Command "prod" not found.
+error Command "prod" not found.  这个没事
+
+
+
+
+
+error Command "build" not found.
+>这个是因为应该是在  resource/admin目录下执行yarn build
 
 
 
@@ -145,17 +152,69 @@ error Command "prod" not found.
 
 
 
-
-
-
-
-
-### 创建新栏目
+#### 创建新栏目
 
 ```shell
  php artisan admin:make-resource admin-types
 ```
 
+>创建完后总是提示PAGE 404 是因为在执行完创建新栏目的命令后没有执行  yarn build ，需要使用这个编译一下就可以出来了  ^_^
 
 
-vue的路由文件是   views/pages.js
+#### vue的路由文件是   views/pages.js
+
+
+#### 提交保存分类时一直提示  服务器异常(code: 500)
+
+>原因是少了两个字段   添加时间的字段和修改时间字段
+
+
+
+#### 修改内容没有过来
+
+>原因是：变量尽量不要带 "s",去掉s后既可以了
+
+>在Models中的类引入的时候后面的变量不要加"s"   -- 切记
+
+>同时需要修改Models中的字段 $fillable
+
+>再看下Resource文件中是否配置过
+
+
+#### 查看指定路由包含的功能
+>php artisan route:list | findstr 'users' 
+
+
+
+#### 录入项目页面的上传图片的地方没有上传图片的地方
+
+>原因是：少引入了
+```js
+import FilePicker from '@c/LzForm/FilePicker'
+
+components: {
+    FilePicker
+}
+```
+
+
+#### 分类没有出来
+
+>原因是：需要在 data(){} 中初始化一下
+
+
+#### 添加所属分类时出现了默认的  undefined
+
+>原因是：
+
+
+#### 提交保存的时候图片上传不上去
+
+>原因是：Resource文件中添加一下图片对应的名字
+
+#### 提交保存的时候图片是null
+
+>原因是：
+
+
+
